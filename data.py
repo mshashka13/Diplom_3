@@ -3,13 +3,15 @@ DRIVER_NAME = None
 
 # URL
 class Url:
-    URL_HOME = "https://stellarburgers.nomoreparties.site/"  # Домашняя страница (Конструктор)
-    URL_ENTRANCE_PERSONAL_ACCOUNT = "https://stellarburgers.nomoreparties.site/login"  # Форма авторизации
-    URL_RECOVERY_PASSWORD_PAGE = "https://stellarburgers.nomoreparties.site/forgot-password"  # Страница восстановления пароля
-    URL_RECOVERY_PASSWORD_FORM = "https://stellarburgers.nomoreparties.site/reset-password"  # Форма восстановления пароля
-    URL_ACCOUNT_PROFILE = "https://stellarburgers.nomoreparties.site/account/profile"  # Личный кабинет (Профиль)
-    URL_ORDER_HISTORY = "https://stellarburgers.nomoreparties.site/account/order-history"  # История заказов
-    URL_ORDER_FEED = "https://stellarburgers.nomoreparties.site/feed"  # Лента заказов
+    BASE_URL = "https://stellarburgers.nomoreparties.site"
+
+    URL_HOME = f"{BASE_URL}/"  # Домашняя страница (Конструктор)
+    URL_ENTRANCE_PERSONAL_ACCOUNT = f"{BASE_URL}/login"  # Форма авторизации
+    URL_RECOVERY_PASSWORD_PAGE = f"{BASE_URL}/forgot-password"  # Страница восстановления пароля
+    URL_RECOVERY_PASSWORD_FORM = f"{BASE_URL}/reset-password"  # Форма восстановления пароля
+    URL_ACCOUNT_PROFILE = f"{BASE_URL}/account/profile"  # Личный кабинет (Профиль)
+    URL_ORDER_HISTORY = f"{BASE_URL}/account/order-history"  # История заказов
+    URL_ORDER_FEED = f"{BASE_URL}/feed"  # Лента заказов
 
 
 # Данные для авторизации

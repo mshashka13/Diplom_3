@@ -3,11 +3,11 @@ from data import Url
 import allure
 
 
-@allure.title('Тесты на страницу восстановления пароля')
+@allure.feature('Тесты на страницу восстановления пароля')
 class TestPasswordRecovery:
     @allure.title('Проверка перехода на страницу восстановления пароля по кнопке "Восстановить пароль"')
     def test_check_transition_to_page_recovery_password(self, driver):
-        driver.get(Url.URL_HOME)
+        driver.get(Url.URL_ENTRANCE_PERSONAL_ACCOUNT)
         page = PasswordRecoveryPage(driver)
         new_url = page.check_transition_to_page_recovery_password()
         assert new_url == Url.URL_RECOVERY_PASSWORD_PAGE

@@ -1,41 +1,33 @@
 import pytest
 from selenium import webdriver
 import data
-from data import Url, UserData
-from pages.base_page import BasePage
-from locators import PersonalAccountLocators
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.wait import WebDriverWait
-
-
-def ChromeOptions():
-    pass
-
-
-def FirefoxOptions():
-    pass
+from pages.personal_account_page import PersonalAccountPage
+from pages.constructor_page import ConstructorPage
+from pages.order_feed_page import OrderFeedPage
 
 
 @pytest.fixture(params=["chrome", "firefox"])
 def driver(request):
     if request.param == "chrome":
         data.DRIVER_NAME = 'chrome'
-        options = ChromeOptions()
-        driver = webdriver.Chrome(options=options)
+        driver = webdriver.Chrome()
     else:
         data.DRIVER_NAME = 'firefox'
-        options = FirefoxOptions()
-        driver = webdriver.Firefox(options=options)
+        driver = webdriver.Firefox()
     yield driver
     driver.quit()
 
 
 @pytest.fixture
-def authorization(driver):
-    page = BasePage(driver)
-    driver.get(Url.URL_ENTRANCE_PERSONAL_ACCOUNT)
-    page.add_text_to_element(PersonalAccountLocators.FIELD_EMAIL, UserData.email)
-    page.add_text_to_element(PersonalAccountLocators.FIELD_PASSWORD, UserData.password)
-    page.click_element(PersonalAccountLocators.BUTTON_LOG_IN)
-    WebDriverWait(driver, 10).until((EC.url_to_be(Url.URL_HOME)))
-    yield driver
+def personal_account(driver):
+    return PersonalAccountPage(driver)
+
+
+@pytest.fixture
+def constructor(driver):
+    return ConstructorPage(driver)
+
+
+@pytest.fixture
+def order_feed(driver):
+    return OrderFeedPage(driver)

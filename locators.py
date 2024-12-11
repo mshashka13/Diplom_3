@@ -28,21 +28,24 @@ class PasswordRecoveryLocators:
 class ConstructorLocators:
     BUTTON_CONSTRUCTOR = (By.XPATH, "//p[text()='Конструктор']")  # кнопка Конструктор
     TEXT_COLLECT_BURGER = (By.XPATH, ".//*[text()='Соберите бургер']")  # текст Соберите бургер
+    BURGER_INGREDIENT = "(.//*[@class='BurgerIngredient_ingredient__1TVf6 ml-4 mr-4 mb-8'])[{index}]"  # Динамический локатор ингредиента по индексу
+    INGREDIENT_COUNTER = "(.//p[@class='counter_counter__num__3nue1'])[{index}]"  # Динамический локатор каунтера по индексу
     TEXT_INGREDIENT_DETAILS = (By.XPATH, ".//*[text()='Детали ингредиента']")  # текст Детали ингредиента
     BUTTON_CLOSE_INGREDIENT_DETAILS = (By.XPATH, ".//button[@class='Modal_modal__close_modified__3V5XS Modal_modal__close__TnseK']")  # кнопка Закрыть детали ингредиента
     DROP_ZONE_CONSTRUCTOR = (By.XPATH, ".//*[@class='constructor-element constructor-element_pos_top']")  # Зона для перетаскивания ингредиента в заказ
     BUTTON_PLACE_ORDER = (By.XPATH, ".//button[text()='Оформить заказ']")  # кнопка Оформить заказ
     TEXT_ORDER_ID = (By.XPATH, ".//p[text()='идентификатор заказа']")  # текст Идентификатор заказа
+    TEXT_IN_ORDER_ID = (By.XPATH, ".//*[@class='Modal_modal__title_shadow__3ikwq Modal_modal__title__2L34m text text_type_digits-large mb-8']")  # Идентификатор заказа
+    BUTTON_CLOSE_ORDER_ID = (By.XPATH, ".//button[contains(@class, 'Modal_modal__close')]")  # кнопка закрыть созданный заказ
 
 
 # Лента заказов
 class OrderFeedLocators:
     BUTTON_ORDER_FEED = (By.XPATH, "//p[text()='Лента Заказов']")  # кнопка Лента заказов
     TEXT_ORDER_FEED = (By.XPATH, ".//*[text()='Лента заказов']")  # текст Лента заказов
-    TEXT_ORDER_ID = (By.XPATH, ".//*[@class='Modal_modal__title_shadow__3ikwq Modal_modal__title__2L34m text text_type_digits-large mb-8']")  # Идентификатор заказа
-    BUTTON_CLOSE_ORDER_ID = (By.XPATH, ".//button[contains(@class, 'Modal_modal__close')]")  # кнопка закрыть созданный заказ
     ORDER_FROM_ORDER_FEED = (By.XPATH, ".//p[@class='text text_type_digits-default']")  # первый заказ в списке Лента заказов
     TEXT_COMPOSITION_ORDER = (By.XPATH, ".//p[@class='text text_type_main-medium mb-8']")  # текст Состав в карточке заказа
     TEXT_COUNTER_COMPLETED_FOR_ALL_TIME = (By.XPATH, "(.//p[@class='OrderFeed_number__2MbrQ text text_type_digits-large'])[1]")  # текст счетчика Выполнено за все время
     TEXT_COUNTER_COMPLETED_FOR_TODAY = (By.XPATH, "(.//p[@class='OrderFeed_number__2MbrQ text text_type_digits-large'])[2]")  # текст счетчика Выполнено за сегодня
-    TEXT_LIST_ON_WORK = (By.XPATH, ".//li[@class='text text_type_main-small']")  # текст внутри раздела В работе
+    TEXT_LIST_ON_WORK = (By.XPATH, ".//ul[@class='OrderFeed_orderListReady__1YFem OrderFeed_orderList__cBvyi']/li[last()]") # текст внутри раздела В работе
+    ORDER_ID = ".//p[contains(@class, 'text text_type_digits-default') and contains(text(), '{order_id}')]"  # Динамический локатор заказа по его id в Ленте заказов

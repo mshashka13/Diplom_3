@@ -45,6 +45,7 @@ __*base_page - Базовые методы:*__
 - url_changes - Дождаться смены URL
 - wait_for_url_change - Получить новый URL
 - url_to_be - Дождаться, когда URL станет указанным
+- get_current_url - Вернуть текущий URL
 - click_and_wait_for_visibility - Клик по элементу с ожиданием
 - drag_and_drop - Перетащить элемент
 - drag_and_drop_firefox - Перетащить элемент в бразуере Firefox

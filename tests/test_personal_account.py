@@ -21,7 +21,7 @@ class TestPersonalAccount:
         page.authorization()
         page.go_to_personal_account()
         page.go_to_order_history()
-        assert driver.current_url == Url.URL_ORDER_HISTORY
+        assert page.get_current_url() == Url.URL_ORDER_HISTORY
 
     @allure.title('Проверка авторизации и выхода из аккаунта')
     def test_check_log_out_from_personal_account(self, driver):
@@ -30,4 +30,4 @@ class TestPersonalAccount:
         page.authorization()
         page.go_to_personal_account()
         page.log_out()
-        assert driver.current_url == Url.URL_ENTRANCE_PERSONAL_ACCOUNT
+        assert page.get_current_url() == Url.URL_ENTRANCE_PERSONAL_ACCOUNT

@@ -48,6 +48,10 @@ class BasePage:
     def url_to_be(self, original_url):
         WebDriverWait(self.driver, self.time).until(EC.url_to_be(original_url))
 
+    # Вернуть текущий URL
+    def get_current_url(self):
+        return self.driver.current_url
+
     # Клик по элементу с ожиданием
     def click_and_wait_for_visibility(self, click_locator, wait_locator):
         self.click_element(click_locator)
